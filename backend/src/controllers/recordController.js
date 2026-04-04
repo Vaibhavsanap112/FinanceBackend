@@ -4,7 +4,16 @@ export const createRecord = async(req,res)=>{
   try{
     const {amount , type, category, date, notes} = req.body;
 
+    if(!amount || amount<=0){
+      return res.status(400).json({message:"Invalid amount"});
+    }
 
+if(!type || !["income","expense"].includes(type)){
+  return res.status(400).json({message:"Invalid type"});
+}
+if(!category){
+  return res.status(400).json({message:"Category is required"});
+}
     const record = await Record.create({
       amount,
       type,
