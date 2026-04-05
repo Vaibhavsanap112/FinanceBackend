@@ -49,7 +49,7 @@ export const login = async(req,res)=>{
       return res.status(400).json({message:"Invalid Credentials"});
     }
 
-    if(!user.isActive){
+  if(!user.isActive){
       return res.status(403).json({message:"Account is deactivated"})
     }
 
@@ -63,11 +63,11 @@ export const login = async(req,res)=>{
 
     const token = jwt.sign(
   { id: user._id, role: user.role },
-  "secretkey",
+  process.env.JWT_SECRET,
   { expiresIn: "1d" }
 );
     res.json({
-      message:"Login successful",
+      message:"User logged in successfully",
       token,
       user,
     });

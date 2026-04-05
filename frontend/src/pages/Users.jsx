@@ -6,12 +6,11 @@ function Users() {
   const currentUser = JSON.parse(localStorage.getItem("user"));
   const [users, setUsers] = useState([]);
 
-  // 🚫 only admin
   if (!currentUser || currentUser.role !== "admin") {
     return <h2 style={{ textAlign: "center" }}>Access Denied</h2>;
   }
 
-  // fetch users
+  
   const loadUsers = async () => {
     try {
       const res = await API.get("/users");
@@ -26,7 +25,7 @@ function Users() {
     loadUsers();
   }, []);
 
-  // update role
+  
   const handleRoleChange = async (id, newRole) => {
     try {
       await API.put(`/users/${id}`, { role: newRole });
@@ -36,7 +35,7 @@ function Users() {
     }
   };
 
-  // toggle active/inactive
+  
   const toggleStatus = async (id, currentStatus) => {
     try {
       await API.put(`/users/${id}`, { isActive: !currentStatus });
@@ -67,7 +66,7 @@ function Users() {
               <span>{user.name}</span>
               <span>{user.email}</span>
 
-              {/* Role dropdown */}
+              
               <select
                 value={user.role}
                 onChange={(e) =>
@@ -80,12 +79,12 @@ function Users() {
                 <option value="admin">Admin</option>
               </select>
 
-              {/* Status */}
+              
               <span style={{ color: user.isActive ? "green" : "red" }}>
                 {user.isActive ? "Active" : "Inactive"}
               </span>
 
-              {/* Toggle button */}
+             
               <button
                 style={toggleBtn}
                 onClick={() =>
@@ -104,7 +103,7 @@ function Users() {
 
 export default Users;
 
-/* 🎨 Styles */
+
 
 const containerStyle = {
   maxWidth: "900px",

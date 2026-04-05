@@ -9,7 +9,7 @@ function AddRecord() {
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
-  // get id from URL
+ 
   const queryParams = new URLSearchParams(location.search);
   const recordId = queryParams.get("id");
 
@@ -20,12 +20,12 @@ function AddRecord() {
     notes: "",
   });
 
-  // 🚫 Only admin allowed
+
   if (!currentUser || currentUser.role !== "admin") {
     return <h2 style={{ textAlign: "center" }}>Access Denied</h2>;
   }
 
-  // load data if editing
+
   useEffect(() => {
     if (recordId) {
       const fetchRecord = async () => {
@@ -50,7 +50,7 @@ function AddRecord() {
     }
   }, [recordId]);
 
-  // handle input change
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -59,17 +59,17 @@ function AddRecord() {
     }));
   };
 
-  // submit form
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       if (recordId) {
-        // ✏️ update record
+       
         await API.put(`/records/${recordId}`, formData);
         alert("Record updated successfully!");
       } else {
-        // ➕ create record
+        
         await API.post("/records", {
           ...formData,
           date: new Date(),
@@ -143,7 +143,7 @@ function AddRecord() {
 
 export default AddRecord;
 
-/* 🎨 Styles */
+
 
 const containerStyle = {
   maxWidth: "420px",

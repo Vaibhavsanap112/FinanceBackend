@@ -1,2 +1,12 @@
 PORT=5000
 MONGO_URI=mongodb+srv://Vaibhavs:Vaibhav%40119@cluster0.doxa9.mongodb.net/financeDB?retryWrites=true&w=majority
+node_modules/
+.env
+dist/
+build/
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store

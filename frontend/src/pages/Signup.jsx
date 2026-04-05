@@ -12,7 +12,7 @@ function Signup() {
     role: "viewer",
   });
 
-  // handle input change
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({
@@ -21,7 +21,7 @@ function Signup() {
     }));
   };
 
-  // signup function
+ 
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -99,7 +99,7 @@ function Signup() {
 
 export default Signup;
 
-/* 🎨 Styles */
+
 
 const containerStyle = {
   height: "100vh",

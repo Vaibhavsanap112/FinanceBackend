@@ -10,7 +10,7 @@ function Login() {
     password: "",
   });
 
-  // handle input change
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({
@@ -19,7 +19,7 @@ function Login() {
     }));
   };
 
-  // login function
+  
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -81,7 +81,7 @@ function Login() {
 
 export default Login;
 
-/* 🎨 Styles */
+
 
 const containerStyle = {
   height: "100vh",

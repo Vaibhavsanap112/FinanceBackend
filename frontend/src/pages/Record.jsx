@@ -9,7 +9,7 @@ function Records() {
 
   const [recordList, setRecordList] = useState([]);
 
-  // 🔥 filters state
+ 
   const [filters, setFilters] = useState({
     type: "",
     category: "",
@@ -17,7 +17,7 @@ function Records() {
     endDate: "",
   });
 
-  // fetch records with filters
+ 
   const loadRecords = async () => {
     try {
       const query = new URLSearchParams(filters).toString();
@@ -32,12 +32,12 @@ function Records() {
     loadRecords();
   }, []);
 
-  // 🚫 block viewer
+
   if (!currentUser || currentUser.role === "viewer") {
     return <h2 style={{ textAlign: "center" }}>Access Denied</h2>;
   }
 
-  // delete record
+ 
   const deleteRecord = async (id) => {
     try {
       await API.delete(`/records/${id}`);
@@ -54,14 +54,14 @@ function Records() {
       <div style={containerStyle}>
         <h2 style={{ marginBottom: "20px" }}>📋 Records</h2>
 
-        {/* Admin only */}
+       
         {currentUser.role === "admin" && (
           <button style={addBtnStyle} onClick={() => navigate("/add-record")}>
             ➕ Add Record
           </button>
         )}
 
-        {/* 🔥 FILTER UI */}
+      
         <div style={filterBox}>
           <select
             value={filters.type}
@@ -106,7 +106,7 @@ function Records() {
           </button>
         </div>
 
-        {/* Records List */}
+        
         <div style={listStyle}>
           {recordList.length === 0 && (
             <p style={{ textAlign: "center" }}>No records found</p>
@@ -124,7 +124,7 @@ function Records() {
                 </p>
               </div>
 
-              {/* Admin actions */}
+             
               {currentUser.role === "admin" && (
                 <div>
                   <button
@@ -154,7 +154,6 @@ function Records() {
 
 export default Records;
 
-/* 🎨 Styles */
 
 const containerStyle = {
   maxWidth: "800px",

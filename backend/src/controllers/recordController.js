@@ -43,7 +43,7 @@ export const getRecords = async (req, res) => {
 
     if (type) filter.type = type;
     if (category) filter.category = category.trim().toLowerCase();
-    
+
     if (startDate && endDate) {
       filter.date = {
         $gte: new Date(startDate),
@@ -72,13 +72,23 @@ export const updateRecord = async (req,res)=>{
 
     const {amount , type, category, date,notes} = req.body;
 
+    if(amount!==undefined){
+      record.amount = amount;
 
-    record.amount = amount ?? record.amount;
+    }
+    if(type){
+      record.type = type;
+    }
+    if(category){
+      record.category = category.trim().toLowerCase();
 
-    record.type = type ?? record.type;
-    record.category = category ?? record.category;
-    record.date = date?? record.date;
-    record.notes = notes  ?? record.notes;
+    }
+    if(date){
+      record.data = date;
+    }
+    if(notes){
+      record.notes;
+    }
 
     await record.save();
 

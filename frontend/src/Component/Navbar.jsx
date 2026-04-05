@@ -15,12 +15,12 @@ function Navbar() {
 
   return (
     <div style={navStyle}>
-      {/* Logo */}
+     
       <div style={logoStyle} onClick={() => navigate("/dashboard")}>
         💰 FinanceTracker
       </div>
 
-      {/* Links */}
+    
       <div style={linksContainer}>
         <span
           style={linkStyle(isActive("/dashboard"))}
@@ -67,7 +67,7 @@ function Navbar() {
 
 export default Navbar;
 
-/* 🎨 Styles */
+
 
 const navStyle = {
   display: "flex",

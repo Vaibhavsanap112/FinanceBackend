@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import API from "../Services/api";
+import API from "../services/api";
 import Navbar from "../Component/Navbar";
 
 function Dashboard() {
@@ -21,7 +21,7 @@ function Dashboard() {
     borderRadius: "10px",
   };
 
-  // fetch summary
+ 
   const fetchDashboard = async () => {
     try {
       const res = await API.get("/dashboard/summary");
@@ -31,7 +31,7 @@ function Dashboard() {
     }
   };
 
-  // fetch trends
+  
   const fetchTrends = async () => {
     try {
       const res = await API.get("/dashboard/trends");
@@ -54,7 +54,7 @@ return (
      <Navbar />
     <h2 style={{ marginBottom: "20px" }}>📊 Dashboard</h2>
 
-    {/* Cards */}
+   
     <div
       style={{
         display: "flex",
@@ -89,7 +89,7 @@ return (
       </div>
     </div>
 
-    {/* Category Totals */}
+   
     <section style={sectionStyle}>
       <h3>📂 Category Totals</h3>
       <ul>
@@ -101,7 +101,7 @@ return (
       </ul>
     </section>
 
-    {/* Recent Activity */}
+    
     <section style={sectionStyle}>
       <h3>🕒 Recent Activity</h3>
       <ul>
@@ -113,7 +113,7 @@ return (
       </ul>
     </section>
 
-    {/* Monthly Trends */}
+    
     <section style={sectionStyle}>
       <h3>📈 Monthly Trends</h3>
       <ul>
