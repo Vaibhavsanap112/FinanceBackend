@@ -49,11 +49,17 @@ export const login = async(req,res)=>{
       return res.status(400).json({message:"Invalid Credentials"});
     }
 
+    if(!user.isActive){
+      return res.status(403).json({message:"Account is deactivated"})
+    }
+
     const isMatch = await bcrypt.compare(password,user.password);
 
     if(!isMatch){
       return res.status(400).json({message:"Invalid Credentials"});
     }
+
+
 
     const token = jwt.sign(
   { id: user._id, role: user.role },

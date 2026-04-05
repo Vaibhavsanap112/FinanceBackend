@@ -50,8 +50,14 @@ export const getTrends = async( req, res)=>{
     const weekly={};
 
     records.forEach((rec)=>{
+      if(!rec.date) return;
+      const date= new Date(rec.date);
 
-      const date = new Date(rec.date);
+
+
+     const month =date.toLocaleDateString("default",{month:"long"});
+     monthly[month] =(monthly[month] || 0)+rec.amount;
+     
 
       const week = Math.ceil(date.getDate()/7);
       const weekKey = `Week ${week}`;

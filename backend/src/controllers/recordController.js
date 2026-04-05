@@ -17,10 +17,11 @@ if(!category){
     const record = await Record.create({
       amount,
       type,
-      category,
+      category:category.trim().toLowerCase(),
       date,
       notes,
       createdBy:req.user._id,
+      
 
     });
 
@@ -41,8 +42,8 @@ export const getRecords = async (req, res) => {
     let filter = { createdBy: req.user._id };
 
     if (type) filter.type = type;
-    if (category) filter.category = category;
-
+    if (category) filter.category = category.trim().toLowerCase();
+    
     if (startDate && endDate) {
       filter.date = {
         $gte: new Date(startDate),
