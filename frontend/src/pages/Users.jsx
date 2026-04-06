@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import API from "../../src/services/api";
+import API from "../services/api";
 import Navbar from "../components/Navbar";
 
 function Users() {
