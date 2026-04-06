@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://financebackend-6x0t.onrender.com/api/v1",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 api.interceptors.request.use((req) => {
@@ -15,3 +15,5 @@ api.interceptors.request.use((req) => {
 });
 
 export default api;
+
+
