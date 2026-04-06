@@ -100,7 +100,7 @@ It demonstrates backend design, data modeling, access control, and API structuri
 ## 🌐 Live Demo
 
 Frontend: https://finance-backend-vert.vercel.app/
-Backend API: https://financebackend-6x0t.onrender.com/api/v1
+Backend API: https://financebackend-6x0t.onrender.com
 
 ---
 
