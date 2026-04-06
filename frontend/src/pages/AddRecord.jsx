@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import API from "../services/api.js";
+import API from "../api";
 import Navbar from "../components/Navbar";
 
 function AddRecord() {
