@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import API from "../services/api";
-import Navbar from "../Component/Navbar";
+import Navbar from "../components/Navbar";
 
 function AddRecord() {
   const navigate = useNavigate();
